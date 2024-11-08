@@ -14,6 +14,7 @@ Check the assertion tests for expected output.
 Note that this could also be done with a single list and a formula to modify the list content!
 """
 
+
 table = [
     [],
     [10,11,12,13,14,15,16,17,18,19,20,20,20,20,20,20,21,22,23,24,25],
@@ -37,10 +38,18 @@ table = [
     [-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 ]
 
-def target(lvl,ac):
+ac =  int(input("enter an armour class 10 --> -10: "))
+lvl = int(input("enter a level 1-20: "))
+x = 10 - ac
+print(table[x][lvl])
+
+def target(lvl,acc):
+    pass
     return
 
 def tests():
     assert target(5,7) == 11
     assert target(10,-10) == 20
     assert target(17,-3) == 13
+
+
