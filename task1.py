@@ -38,10 +38,13 @@ table = [
     [-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 ]
 
-ac =  int(input("enter an armour class 10 --> -10: "))
 lvl = int(input("enter a level 1-20: "))
-x = 10 - ac
-print(table[x][lvl])
+ac =  int(input("enter an armour class 10 --> -10: "))
+
+x = ac - 10
+x = x*-1
+print(table[lvl][x])
+
 
 def target(lvl,acc):
     pass
