@@ -32,10 +32,145 @@ teamData = {
         'goalsFor' : 0,
         'goalsAgainst' : 0
     },
-    'BC' : {}
+    'BC' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'MN' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'SK' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'ON' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'QC' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+    
+    'PE' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'NS' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'NB' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'NL' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'YT' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'NT' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
+
+    'NU' : {'gamesPlayed' : 0,
+        'wins' : 0,
+        'losses' : 0,
+        'ties' : 0,
+        'goalsFor' : 0,
+        'goalsAgainst' : 0},
 }
+
+for i in games:
+    homeTeam =  i['home']
+    awayTeam = i['away']
+    print("========================")
+    print(f"{i['home']} scored {i['homeScore']}")
+
+    teamData[homeTeam]['gamesPlayed'] = teamData[homeTeam]['gamesPlayed'] + 1 
+    teamData[awayTeam]['gamesPlayed'] = teamData[awayTeam]['gamesPlayed'] + 1
+    
+    if i["homeScore"] > i["awayScore"]:
+        print(f"{i['away']} scored  {i['awayScore']} ")
+        print(f"{i["home"]} won!")
+        teamData[homeTeam]['wins'] = teamData[homeTeam]['wins'] + 1 
+        teamData[awayTeam]['losses'] = teamData[awayTeam]['losses'] + 1
+        
+        teamData[homeTeam]['goalsFor'] = teamData[homeTeam]['goalsFor'] + (i['homeScore'])
+        teamData[awayTeam]['goalsFor'] = teamData[awayTeam]['goalsFor'] + (i['awayScore'])
+        teamData[homeTeam]['goalsAgainst'] = teamData[homeTeam]['goalsAgainst'] + (i['awayScore'])
+        teamData[awayTeam]['goalsAgainst'] = teamData[awayTeam]['goalsAgainst'] + (i['homeScore'])
+
+    elif i["homeScore"] == i["awayScore"]:
+        print(f"{i['away']} scored {i['awayScore']} ")
+        print("tie game")
+        teamData[homeTeam]['ties'] = teamData[homeTeam]['ties'] + 1 
+        teamData[awayTeam]['ties'] = teamData[awayTeam]['ties'] + 1
+        teamData[homeTeam]['goalsFor'] = teamData[homeTeam]['goalsFor'] + (i['homeScore'])
+        teamData[awayTeam]['goalsFor'] = teamData[awayTeam]['goalsFor'] + (i['awayScore'])
+        teamData[homeTeam]['goalsAgainst'] = teamData[homeTeam]['goalsAgainst'] + (i['awayScore'])
+        teamData[awayTeam]['goalsAgainst'] = teamData[awayTeam]['goalsAgainst'] + (i['homeScore'])
+         # add their goals for + homeScore, goals against + awayScore, ties + 1, gamesPlayed + 1 
+
+    elif i["homeScore"] < i["awayScore"]:
+        print(f"{i['away']} scored {i['awayScore']} ")
+        print(f"{i['home']} loss")
+        teamData[homeTeam]['losses'] = teamData[homeTeam]['losses'] + 1 
+        teamData[awayTeam]['wins'] = teamData[awayTeam]['wins'] + 1
+        teamData[homeTeam]['goalsFor'] = teamData[homeTeam]['goalsFor'] + (i['homeScore'])
+        teamData[awayTeam]['goalsFor'] = teamData[awayTeam]['goalsFor'] + (i['awayScore'])
+        teamData[homeTeam]['goalsAgainst'] = teamData[homeTeam]['goalsAgainst'] + (i['awayScore'])
+        teamData[awayTeam]['goalsAgainst'] = teamData[awayTeam]['goalsAgainst'] + (i['homeScore'])
+         # add their goals for + homeScore, goals against + awayScore, losses + 1, gamesPlayed + 1 
+
+for i in games:
+    print("============================")
+    print(teams)
+    stats = input("enter a team to view their stats, close the debug once you are done: ")
+    print("                                ")
+    print(teamData[stats])
+    print("                                ")
+    
 
 def tests():
     assert teamData['BC']['gamesPlayed'] == 12
     assert teamData['BC']['wins'] == 5
+
+
 

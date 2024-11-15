@@ -31847,3 +31847,13 @@ pokemon = [
   }
 ]
 
+for i in pokemon:
+    names = i['name']
+    ID = i['id']
+    print("====================")
+    poke = input("enter a pokemon by ID or english name: ")
+    print("====================")
+    if poke == pokemon['name']:
+        print(pokemon['id']['name']['type']['species'])
+
+  
