@@ -31847,13 +31847,22 @@ pokemon = [
   }
 ]
 
-for i in pokemon:
-    names = i['name']
-    ID = i['id']
-    print("====================")
-    poke = input("enter a pokemon by ID or english name: ")
-    print("====================")
-    if poke == pokemon['name']:
-        print(pokemon['id']['name']['type']['species'])
+print("====================")
+poke = input("enter a pokemon by ID or english name: ")
+print("====================")
 
-  
+
+for i in pokemon:
+  description = i['description']
+  Base = i['base']
+  types = i['type']
+  names = i['name']['english']
+  ID = i['id']
+  #print(names)
+  #print(ID)
+  if poke == names or poke == ID :
+    print(f"{names} I choose you!\n {names} is a {types} type pokemon \n")
+    print(f"{Base}\n\n{description}\n")    
+    
+def test():
+  assert pokemon['Charmander']['HP'] == 39
