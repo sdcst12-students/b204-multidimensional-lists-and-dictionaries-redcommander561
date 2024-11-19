@@ -31854,7 +31854,10 @@ print("====================")
 
 for i in pokemon:
   description = i['description']
-  Base = i['base']
+  if "base" in i:
+    Base = i["base"]
+  else:
+    Base = ""
   types = i['type']
   names = i['name']['english']
   ID = i['id']
@@ -31862,7 +31865,8 @@ for i in pokemon:
   #print(ID)
   if poke == names or poke == ID :
     print(f"{names} I choose you!\n {names} is a {types} type pokemon \n")
-    print(f"{Base}\n\n{description}\n")    
+    print(f"{3}\n\n{description}\n")  
+    print(Base)  
     
 def test():
   assert pokemon['Charmander']['HP'] == 39
