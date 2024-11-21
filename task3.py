@@ -31861,12 +31861,11 @@ for i in pokemon:
   types = i['type']
   names = i['name']['english']
   ID = i['id']
-  #print(names)
-  #print(ID)
+  
   if poke == names or poke == ID :
     print(f"{names} I choose you!\n {names} is a {types} type pokemon \n")
-    print(f"{3}\n\n{description}\n")  
-    print(Base)  
+    print(f"{Base}\n\n{description}\n")  
+     
     
 def test():
   assert pokemon['Charmander']['HP'] == 39
